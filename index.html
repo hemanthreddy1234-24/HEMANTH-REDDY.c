@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RentalHub | Bikes, Cars & Electronics</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <nav class="nav">
+    <h2>Rental<span>Hub</span></h2>
+    <button id="menuBtn">☰</button>
+    <div id="navLinks">
+      <a href="#home">Home</a><a href="#rentals">Rentals</a>
+      <a href="#cart">Cart <b id="cartCount">0</b></a><a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<section id="home" class="hero">
+  <div>
+    <p class="tag">BIKES • CARS • CAMERAS • DRONES • SPEAKERS</p>
+    <h1>Rent what you need for your next adventure.</h1>
+    <p>Choose a vehicle or electronic device, select rental dates and quantity, then continue to payment.</p>
+    <a class="btn" href="#rentals">Browse Rentals</a>
+  </div>
+</section>
+
+<section id="rentals" class="section">
+  <h2>Available Rentals</h2>
+  <div class="filters">
+    <button class="filter active" data-category="all">All</button>
+    <button class="filter" data-category="bike">Bikes</button>
+    <button class="filter" data-category="car">Cars</button>
+    <button class="filter" data-category="camera">Cameras</button>
+    <button class="filter" data-category="drone">Drones</button>
+    <button class="filter" data-category="speaker">Speakers</button>
+  </div>
+  <div id="productGrid" class="grid"></div>
+</section>
+
+<section id="cart" class="section">
+  <h2>Your Rental Cart</h2>
+  <div id="cartBox" class="cart-box"></div>
+</section>
+
+<section id="contact" class="section contact">
+  <h2>Customer & Rental Details</h2>
+  <form id="bookingForm">
+    <input id="customerName" required placeholder="Full name">
+    <input id="phone" required placeholder="Phone number">
+    <input id="email" type="email" required placeholder="Email">
+    <input id="startDate" type="date" required>
+    <input id="endDate" type="date" required>
+    <input id="location" required placeholder="Pickup / delivery location">
+    <textarea id="notes" placeholder="Additional requirements"></textarea>
+    <button class="btn" type="submit">Continue to Payment</button>
+  </form>
+</section>
+
+<div id="productModal" class="modal">
+  <div class="modal-card">
+    <button class="close" onclick="closeModal('productModal')">×</button>
+    <div id="productDetails"></div>
+  </div>
+</div>
+
+<div id="paymentModal" class="modal">
+  <div class="modal-card">
+    <button class="close" onclick="closeModal('paymentModal')">×</button>
+    <h2>Choose Payment Method</h2>
+    <p id="paymentAmount" class="payment-total"></p>
+    <div class="payments">
+      <label><input type="radio" name="payment" value="PhonePe" checked> 📱 PhonePe</label>
+      <label><input type="radio" name="payment" value="Google Pay"> 🟢 Google Pay</label>
+      <label><input type="radio" name="payment" value="Paytm"> 🔵 Paytm</label>
+    </div>
+    <div id="upiFields">
+      <input id="upiId" placeholder="Enter UPI ID (demo)">
+    </div>
+    <button class="btn full" id="payBtn">Pay & Confirm Rental</button>
+    <p class="security-note">Demo payment only. No real money is charged.</p>
+  </div>
+</div>
+
+<div id="successModal" class="modal">
+  <div class="modal-card success">
+    <h2>✅ Rental Request Confirmed</h2>
+    <p id="successText"></p>
+    <button class="btn" onclick="closeModal('successModal')">Done</button>
+  </div>
+</div>
+
+<footer>© 2026 RentalHub | Bikes, Cars & Electronics Rental</footer>
+<script src="script.js"></script>
+</body>
+</html>
